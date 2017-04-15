@@ -108,8 +108,8 @@ namespace Vidly.Controllers
 
         //INDEX OF MOVIES
         public ViewResult Index()
-        {  
-            if(User.IsInRole("RoleName.CanManageMovies"))
+        {
+            if(User.IsInRole(RoleName.CanManageMovies))
                 return View("List");
 
             return View("ReadOnlyList");
