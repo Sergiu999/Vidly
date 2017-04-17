@@ -28,7 +28,7 @@ namespace Vidly.Controllers
 
 
         //CREATE NEW MOVIE
-        [Authorize(Roles = "RoleName.CanManageMovies")]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -47,7 +47,7 @@ namespace Vidly.Controllers
         //SAVE MOVIE (NEW OR EDIT)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "RoleName.CanManageMovies")]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
@@ -85,7 +85,7 @@ namespace Vidly.Controllers
 
 
         //EDIT MOVIE
-        [Authorize(Roles = "RoleName.CanManageMovies")]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
